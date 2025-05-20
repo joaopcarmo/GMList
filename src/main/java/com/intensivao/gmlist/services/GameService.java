@@ -3,6 +3,7 @@ package com.intensivao.gmlist.services;
 import com.intensivao.gmlist.dto.GameDto;
 import com.intensivao.gmlist.dto.GameMinDto;
 import com.intensivao.gmlist.entities.Game;
+import com.intensivao.gmlist.projections.GameMinProjection;
 import com.intensivao.gmlist.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,12 @@ public class GameService {
         // Converte cada Game para GameMinDto usando stream e mapeamento
         return result.stream().map(x -> new GameMinDto(x)).toList();
         // Retorna a lista de DTOs para ser usada em camadas superiores (ex: controller)
+    }
+
+    @Transactional(readOnly = true)
+    public List<GameMinDto> findByList(Long listId) {
+        List<GameMinProjection> result = gameRepository.searchByList(listId);
+        return result.stream().map(x -> new GameMinDto(x)).toList();
 
     }
 }
