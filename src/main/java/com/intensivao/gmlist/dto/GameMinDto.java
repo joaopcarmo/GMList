@@ -19,7 +19,7 @@ public class GameMinDto {
         imgUrl = entity.getImgUrl();
         shortDescription = entity.getShortDescription();
     }
-    //dto doesnt need setters
+    //dto não precisa de setters, apenas getters
     public Long getId() {
         return id;
     }
