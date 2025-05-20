@@ -6,11 +6,13 @@ GMList is a RESTful API built with Java and Spring Boot to manage a collection o
 
 ## Features
 
-- Retrieve a list of all games with summarized information (DTO)
-- Retrieve detailed information for each game
-- Organized architecture with DTOs, Repositories, Services, and Controllers
-- Initial seed data to populate the database with popular games
-- Persistence using JPA and an H2 in-memory database for development and testing
+- **GET /games**: Returns a list of all games with summarized information (DTO).
+- **GET /games/{id}**: Returns detailed information for a specific game.
+- **GET /games/list/{listId}**: Returns all games belonging to a specific list.
+- Organized architecture using DTOs, Repositories, Services, and Controllers.
+- Initial seed data to populate the database with popular games.
+- Persistence using JPA with an in-memory H2 database for development and testing.
+
 
 ---
 
@@ -28,10 +30,11 @@ GMList is a RESTful API built with Java and Spring Boot to manage a collection o
 ## Project Structure
 
 - **entities**: Classes representing database entities (Game)  
-- **dto**: Data Transfer Objects for simplified data exposure (GameMinDto)  
+- **dto**: Data Transfer Objects for simplified data exposure (GameMinDto)
+- **projections**: Interfaces used to define partial views of entities for optimized query results(e.g., GameMinProjection)
 - **repositories**: Interfaces for data access (GameRepository)  
 - **services**: Business logic and data manipulation (GameService)  
-- **controllers**: REST API endpoints (GameController)  
+- **controllers**: REST API endpoints managing HTTP requests (GameController)  
 
 ---
 
