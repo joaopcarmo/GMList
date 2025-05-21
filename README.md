@@ -1,6 +1,12 @@
 # GMList
 
-GMList is a RESTful API built with Java and Spring Boot to manage a collection of games. This project was created as part of an intensive Java course, focusing on best practices, clean architecture, and database integration.
+GMList is a RESTful API built with Java and Spring Boot to manage a collection of games. This project was created as part of Intensivão Java Spring, focusing on best practices, clean architecture, and database integration.
+
+---
+
+## Domain Model
+
+![dslist-model](https://github.com/user-attachments/assets/78d7436f-c8ee-47d8-8cea-9d71da257611)
 
 ---
 
@@ -19,9 +25,10 @@ GMList is a RESTful API built with Java and Spring Boot to manage a collection o
 ## Technologies Used
 
 - Java 17  
-- Spring Boot 3.x  
+- Spring Boot
 - Spring Data JPA  
-- H2 Database (in-memory)  
+- H2 Database (in-memory)
+- PostgreSql
 - Maven  
 - GitHub for version control
 
@@ -70,6 +77,7 @@ GMList is a RESTful API built with Java and Spring Boot to manage a collection o
 
 ## Contact
 
-João Carmo  
+João Pedro Carmo  
 Email: joaocarmolp@gmail.com  
 GitHub: [joaopcarmo](https://github.com/joaopcarmo)
+Linkedin:[joaopcarmo](https://www.linkedin.com/in/joaopcarmo/)
