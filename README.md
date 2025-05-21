@@ -1,83 +1,120 @@
-# GMList
+# GMList - Sistema de Gerenciamento de Listas de Jogos
 
-GMList is a RESTful API built with Java and Spring Boot to manage a collection of games. This project was created as part of Intensivão Java Spring, focusing on best practices, clean architecture, and database integration.
+GMList é uma aplicação RESTful desenvolvida com Spring Boot para gerenciar listas de jogos. O sistema permite catalogar jogos com detalhes como título, ano de lançamento, gênero, plataformas, e classificação, além de organizá-los em listas temáticas.
 
----
+## 📋 Funcionalidades
 
-## Domain Model
+- Listagem completa de jogos
+- Busca de jogos por ID
+- Criação e gerenciamento de listas de jogos
+- Consulta de jogos por lista específica
+- Organização de jogos em posições específicas dentro de listas
 
-![dslist-model](https://github.com/user-attachments/assets/78d7436f-c8ee-47d8-8cea-9d71da257611)
+## 🛠️ Tecnologias Utilizadas
 
----
+- **Spring Boot**: Framework Java para desenvolvimento de aplicações
+- **Spring Data JPA**: Para persistência de dados
+- **Jakarta Persistence (JPA)**: API de persistência para mapeamento objeto-relacional
+- **RESTful API**: Padrão de arquitetura para APIs web
+- **PostgreSQL**: Sistema de gerenciamento de banco de dados relacional
+- **Docker**: Plataforma para desenvolvimento, envio e execução de aplicações em contêineres
+- **Maven**: Ferramenta de automação de compilação e gerenciamento de dependências
+- **Postman**: Plataforma para teste e documentação de APIs
 
-## Features
+## 🏗️ Arquitetura
 
-- **GET /games**: Returns a list of all games with summarized information (DTO).
-- **GET /games/{id}**: Returns detailed information for a specific game.
-- **GET /games/list/{listId}**: Returns all games belonging to a specific list.
-- Organized architecture using DTOs, Repositories, Services, and Controllers.
-- Initial seed data to populate the database with popular games.
-- Persistence using JPA with an in-memory H2 database for development and testing.
+O projeto segue uma arquitetura em camadas:
 
+### 📦 Entidades (Entities)
+- `Game`: Representa um jogo com seus atributos
+- `GameList`: Representa uma lista de jogos
+- `Belonging`: Representa a relação entre um jogo e uma lista, incluindo a posição do jogo na lista
+- `BelongingPK`: Chave primária composta para a entidade Belonging
 
----
+### 🔄 DTOs (Data Transfer Objects)
+- `GameDto`: Contém todos os dados de um jogo
+- `GameMinDto`: Versão simplificada dos dados de um jogo
+- `GameListDto`: Dados de uma lista de jogos
 
-## Technologies Used
+### 📊 Projeções (Projections)
+- `GameMinProjection`: Interface para projetar dados específicos em consultas personalizadas
 
-- Java 17  
-- Spring Boot
-- JPA/Hibernate 
-- H2 Database (in-memory)
-- PostgreSql
-- Maven  
-- GitHub 
-- Postman
----
+### 🗄️ Repositórios (Repositories)
+- `GameRepository`: Interface para operações de persistência de jogos
+- `GameListRepository`: Interface para operações de persistência de listas de jogos
 
-## Project Structure
+### 🔧 Serviços (Services)
+- `GameService`: Lógica de negócio relacionada a jogos
+- `GameListService`: Lógica de negócio relacionada a listas de jogos
 
-- **entities**: Classes representing database entities (Game)  
-- **dto**: Data Transfer Objects for simplified data exposure (GameMinDto)
-- **projections**: Interfaces used to define partial views of entities for optimized query results(e.g., GameMinProjection)
-- **repositories**: Interfaces for data access (GameRepository)  
-- **services**: Business logic and data manipulation (GameService)  
-- **controllers**: REST API endpoints managing HTTP requests (GameController)  
+### 🎮 Controladores (Controllers)
+- `GameController`: Endpoints da API relacionados a jogos
+- `GameListController`: Endpoints da API relacionados a listas de jogos
 
----
+## 🔌 Endpoints da API
 
-## How to Run
+### Jogos
 
-1. Clone the repository:  
-   `git clone https://github.com/joaopcarmo/GMList.git`  
-   Then navigate to the project folder:  
-   `cd GMList`
+```
+GET /games - Retorna a lista de todos os jogos (versão simplificada)
+GET /games/{id} - Retorna os detalhes completos de um jogo específico
+```
 
-2. Build and run the application using Maven:  
-   `./mvnw spring-boot:run`
+### Listas de Jogos
 
-3. Access the API at:  
-   `http://localhost:8080/games`
-
-4. Access the H2 database console at:  
-   `http://localhost:8080/h2-console`  
-   Use the following credentials:  
-   - JDBC URL: `jdbc:h2:mem:testdb`  
-   - User: `sa`  
-   - Password: (leave blank)
-
----
-
-## Next Steps
-
-- Implement authentication and security  
-- Add endpoints for creating, updating, and deleting games  
-- Develop a frontend interface to consume the API  
-- Improve API documentation with Swagger/OpenAPI  
+```
+GET /lists - Retorna todas as listas de jogos
+GET /lists/{listId}/games - Retorna todos os jogos pertencentes a uma lista específica
+```
 
 
-## Contact
+## 📚 Estrutura do Banco de Dados
 
-João Pedro Carmo  
-Email: joaocarmolp@gmail.com  
-GitHub: [joaopcarmo](https://github.com/joaopcarmo)<br>
-Linkedin: [joaopcarmo](https://www.linkedin.com/in/joaopcarmo/)
+O projeto utiliza três tabelas principais:
+
+- **tb_game**: Armazena informações sobre os jogos
+- **tb_game_list**: Armazena as listas de jogos
+- **tb_belonging**: Tabela de associação entre jogos e listas, incluindo posicionamento
+
+
+## 🚀 Como Executar o Projeto
+
+1. Clone o repositório
+   ```bash
+   git clone https://github.com/joaopcarmo/GMList.git
+   ```
+
+2. Entre na pasta do projeto
+   ```bash
+   cd GMList
+   ```
+
+3. Execute o projeto usando Maven
+   ```bash
+   ./mvnw spring-boot:run
+   ```
+
+4. A API estará disponível em `http://localhost:8080`
+
+
+## 💡 Próximos Passos
+
+- Implementação de operações de criação, atualização e exclusão (CRUD completo)
+- Autenticação e autorização de usuários
+- Documentação da API com Swagger
+- Implementação de testes automatizados
+- Frontend para consumo da API
+
+
+## 📄 Licença
+
+Este projeto está sob a licença [MIT](LICENSE).
+
+
+
+## 📞 Contato
+
+**João Pedro Carmo**  
+📧 Email: [joaocarmolp@gmail.com](mailto:joaocarmolp@gmail.com)  
+🐙 GitHub: [joaopcarmo](https://github.com/joaopcarmo)  
+💼 LinkedIn: [joaopcarmo](https://www.linkedin.com/in/joaopcarmo/)
