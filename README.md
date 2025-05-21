@@ -26,12 +26,12 @@ GMList is a RESTful API built with Java and Spring Boot to manage a collection o
 
 - Java 17  
 - Spring Boot
-- Spring Data JPA  
+- JPA/Hibernate 
 - H2 Database (in-memory)
 - PostgreSql
 - Maven  
-- GitHub for version control
-
+- GitHub 
+- Postman
 ---
 
 ## Project Structure
@@ -79,5 +79,5 @@ GMList is a RESTful API built with Java and Spring Boot to manage a collection o
 
 João Pedro Carmo  
 Email: joaocarmolp@gmail.com  
-GitHub: [joaopcarmo](https://github.com/joaopcarmo)
-Linkedin:[joaopcarmo](https://www.linkedin.com/in/joaopcarmo/)
+GitHub: [joaopcarmo](https://github.com/joaopcarmo)<br>
+Linkedin: [joaopcarmo](https://www.linkedin.com/in/joaopcarmo/)
