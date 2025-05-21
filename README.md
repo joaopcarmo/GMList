@@ -1,6 +1,6 @@
 # GMList - Game List Management System
 
-[Português](README.pt.md) | English
+English | [Português](README.pt.md) 
 
 GMList is a RESTful application developed with Spring Boot for managing game lists. The system allows cataloging games with details such as title, release year, genre, platforms, and rating, as well as organizing them into thematic lists.
 
