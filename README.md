@@ -1,37 +1,47 @@
 # GMList
 
-GMList is a RESTful API built with Java and Spring Boot to manage a collection of games. This project was created as part of an intensive Java course, focusing on best practices, clean architecture, and database integration.
+GMList is a RESTful API built with Java and Spring Boot to manage a collection of games. This project was created as part of Intensivão Java Spring, focusing on best practices, clean architecture, and database integration.
+
+---
+
+## Domain Model
+
+![dslist-model](https://github.com/user-attachments/assets/78d7436f-c8ee-47d8-8cea-9d71da257611)
 
 ---
 
 ## Features
 
-- Retrieve a list of all games with summarized information (DTO)
-- Retrieve detailed information for each game
-- Organized architecture with DTOs, Repositories, Services, and Controllers
-- Initial seed data to populate the database with popular games
-- Persistence using JPA and an H2 in-memory database for development and testing
+- **GET /games**: Returns a list of all games with summarized information (DTO).
+- **GET /games/{id}**: Returns detailed information for a specific game.
+- **GET /games/list/{listId}**: Returns all games belonging to a specific list.
+- Organized architecture using DTOs, Repositories, Services, and Controllers.
+- Initial seed data to populate the database with popular games.
+- Persistence using JPA with an in-memory H2 database for development and testing.
+
 
 ---
 
 ## Technologies Used
 
 - Java 17  
-- Spring Boot 3.x  
-- Spring Data JPA  
-- H2 Database (in-memory)  
+- Spring Boot
+- JPA/Hibernate 
+- H2 Database (in-memory)
+- PostgreSql
 - Maven  
-- GitHub for version control
-
+- GitHub 
+- Postman
 ---
 
 ## Project Structure
 
 - **entities**: Classes representing database entities (Game)  
-- **dto**: Data Transfer Objects for simplified data exposure (GameMinDto)  
+- **dto**: Data Transfer Objects for simplified data exposure (GameMinDto)
+- **projections**: Interfaces used to define partial views of entities for optimized query results(e.g., GameMinProjection)
 - **repositories**: Interfaces for data access (GameRepository)  
 - **services**: Business logic and data manipulation (GameService)  
-- **controllers**: REST API endpoints (GameController)  
+- **controllers**: REST API endpoints managing HTTP requests (GameController)  
 
 ---
 
@@ -67,6 +77,7 @@ GMList is a RESTful API built with Java and Spring Boot to manage a collection o
 
 ## Contact
 
-João Carmo  
+João Pedro Carmo  
 Email: joaocarmolp@gmail.com  
-GitHub: [joaopcarmo](https://github.com/joaopcarmo)
+GitHub: [joaopcarmo](https://github.com/joaopcarmo)<br>
+Linkedin: [joaopcarmo](https://www.linkedin.com/in/joaopcarmo/)
