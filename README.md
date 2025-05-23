@@ -1,83 +1,119 @@
-# GMList
+# GMList - Game List Management System
 
-GMList is a RESTful API built with Java and Spring Boot to manage a collection of games. This project was created as part of Intensivão Java Spring, focusing on best practices, clean architecture, and database integration.
+English | [Português](README.pt.md) 
 
----
+GMList is a RESTful application developed with Spring Boot for managing game lists. The system allows cataloging games with details such as title, release year, genre, platforms, and rating, as well as organizing them into thematic lists.
 
-## Domain Model
+## 📋 Features
 
-![dslist-model](https://github.com/user-attachments/assets/78d7436f-c8ee-47d8-8cea-9d71da257611)
+- Complete game listing
+- Game search by ID
+- Creation and management of game lists
+- Query games by specific list
+- Organization of games in specific positions within lists
 
----
+## 🛠️ Technologies Used
 
-## Features
+- **Spring Boot**: Java application development framework
+- **Spring Data JPA**: For data persistence
+- **Jakarta Persistence (JPA)**: Persistence API for object-relational mapping
+- **RESTful API**: Architectural pattern for web APIs
+- **PostgreSQL**: Relational database management system
+- **Docker**: Platform for developing, shipping, and running applications in containers
+- **Maven**: Build automation and dependency management tool
+- **Postman**: Platform for API testing and documentation
 
-- **GET /games**: Returns a list of all games with summarized information (DTO).
-- **GET /games/{id}**: Returns detailed information for a specific game.
-- **GET /games/list/{listId}**: Returns all games belonging to a specific list.
-- Organized architecture using DTOs, Repositories, Services, and Controllers.
-- Initial seed data to populate the database with popular games.
-- Persistence using JPA with an in-memory H2 database for development and testing.
+## 🏗️ Architecture
 
+The project follows a layered architecture:
 
----
+### 📦 Entities
+- `Game`: Represents a game with its attributes
+- `GameList`: Represents a list of games
+- `Belonging`: Represents the relationship between a game and a list, including the position of the game in the list
+- `BelongingPK`: Composite primary key for the Belonging entity
 
-## Technologies Used
+### 🔄 DTOs (Data Transfer Objects)
+- `GameDto`: Contains all game data
+- `GameMinDto`: Simplified version of game data
+- `GameListDto`: Game list data
 
-- Java 17  
-- Spring Boot
-- JPA/Hibernate 
-- H2 Database (in-memory)
-- PostgreSql
-- Maven  
-- GitHub 
-- Postman
----
+### 📊 Projections
+- `GameMinProjection`: Interface to project specific data in custom queries
 
-## Project Structure
+### 🗄️ Repositories
+- `GameRepository`: Interface for game persistence operations
+- `GameListRepository`: Interface for game list persistence operations
 
-- **entities**: Classes representing database entities (Game)  
-- **dto**: Data Transfer Objects for simplified data exposure (GameMinDto)
-- **projections**: Interfaces used to define partial views of entities for optimized query results(e.g., GameMinProjection)
-- **repositories**: Interfaces for data access (GameRepository)  
-- **services**: Business logic and data manipulation (GameService)  
-- **controllers**: REST API endpoints managing HTTP requests (GameController)  
+### 🔧 Services
+- `GameService`: Business logic related to games
+- `GameListService`: Business logic related to game lists
 
----
+### 🎮 Controllers
+- `GameController`: API endpoints related to games
+- `GameListController`: API endpoints related to game lists
 
-## How to Run
+## 🔌 API Endpoints
 
-1. Clone the repository:  
-   `git clone https://github.com/joaopcarmo/GMList.git`  
-   Then navigate to the project folder:  
-   `cd GMList`
+### Games
 
-2. Build and run the application using Maven:  
-   `./mvnw spring-boot:run`
+```
+GET /games - Returns the list of all games (simplified version)
+GET /games/{id} - Returns the complete details of a specific game
+```
 
-3. Access the API at:  
-   `http://localhost:8080/games`
+### Game Lists
 
-4. Access the H2 database console at:  
-   `http://localhost:8080/h2-console`  
-   Use the following credentials:  
-   - JDBC URL: `jdbc:h2:mem:testdb`  
-   - User: `sa`  
-   - Password: (leave blank)
+```
+GET /lists - Returns all game lists
+GET /lists/{listId}/games - Returns all games belonging to a specific list
+```
 
----
+## 📚 Database Structure
 
-## Next Steps
+The project uses three main tables:
 
-- Implement authentication and security  
-- Add endpoints for creating, updating, and deleting games  
-- Develop a frontend interface to consume the API  
-- Improve API documentation with Swagger/OpenAPI  
+- **tb_game**: Stores information about games
+- **tb_game_list**: Stores game lists
+- **tb_belonging**: Association table between games and lists, including positioning
 
+## 🚀 How to Run the Project
 
-## Contact
+1. Clone the repository
+   ```bash
+   git clone https://github.com/joaopcarmo/GMList.git
+   ```
 
-João Pedro Carmo  
-Email: joaocarmolp@gmail.com  
-GitHub: [joaopcarmo](https://github.com/joaopcarmo)<br>
-Linkedin: [joaopcarmo](https://www.linkedin.com/in/joaopcarmo/)
+2. Enter the project folder
+   ```bash
+   cd GMList
+   ```
+
+3. Run the project using Maven
+   ```bash
+   ./mvnw spring-boot:run
+   ```
+
+4. The API will be available at `http://localhost:8080`
+
+## 💡 Next Steps
+
+- Implementation of create, update, and delete operations (full CRUD)
+- User authentication and authorization
+- API documentation with Swagger
+- Implementation of automated tests
+- Frontend for API consumption
+
+## 📄 License
+
+This project is licensed under the [MIT](LICENSE) license.
+
+## 📞 Contact
+
+- **GitHub**: [joaopcarmo](https://github.com/joaopcarmo)
+- **LinkedIn**: [João Pedro Carmo](https://linkedin.com/in/joaopcarmo)
+- **Email**: joaocarmolp@gmail.com
+
+  ## 👨‍💻 Author
+
+- [João P. Carmo](https://github.com/joaopcarmo)
