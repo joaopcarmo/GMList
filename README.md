@@ -58,8 +58,9 @@ The project follows a layered architecture:
 ### Games
 
 ```
-GET /games - Returns the list of all games (simplified version)
+GET /games - Returns all games 
 GET /games/{id} - Returns the complete details of a specific game
+
 ```
 
 ### Game Lists
@@ -67,6 +68,7 @@ GET /games/{id} - Returns the complete details of a specific game
 ```
 GET /lists - Returns all game lists
 GET /lists/{listId}/games - Returns all games belonging to a specific list
+POST /lists/{id}/replacement - Replace games position in the list
 ```
 
 ## 📚 Database Structure
